@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EconoMMarket</string>
+    <string name="facebook_app_id">297845574080604</string>
+    <string name="fb_login_protocol_scheme">fb297845574080604</string>
+
+</resources>
