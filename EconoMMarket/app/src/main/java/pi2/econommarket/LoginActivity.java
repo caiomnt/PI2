@@ -40,6 +40,8 @@ public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     private GoogleSignInClient mGoogleSignInClient;
 
+
+    Integer RC_SIGN_IN = 6667;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,21 +151,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
-                Toast.makeText(LoginActivity.this, "Falhou ao logar com o Google", Toast.LENGTH_LONG).show();
-            }
-        }
-    }
 
     private void handleFacebookAccessToken(AccessToken token){
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());

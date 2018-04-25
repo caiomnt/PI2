@@ -1,4 +1,4 @@
-package pi2.econommarket;
+/*package pi2.econommarket;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,3 +24,4 @@ public class Listar extends AppCompatActivity {
         setContentView(R.layout.listar);
     }
 }
+*/

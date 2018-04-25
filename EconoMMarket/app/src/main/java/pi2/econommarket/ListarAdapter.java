@@ -1,3 +1,4 @@
+/*
 package pi2.econommarket;
 
 import android.content.Context;
@@ -33,3 +34,4 @@ class ListarAdapter extends RecyclerView.Adapter<ContactViewHolder>{
     }
 
 }
+*/

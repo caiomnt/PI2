@@ -75,7 +75,7 @@ def pesquisar_teste():
   r=''
 
   with open('pi2teste.txt', 'r') as f:
-    r=f.read()
+    r=f.read().decode('utf-8')
   
   resultados=json.loads(r)
 
