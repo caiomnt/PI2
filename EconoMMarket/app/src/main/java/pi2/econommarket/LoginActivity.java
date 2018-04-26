@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(user != null || account != null){
-            Intent it = new Intent(LoginActivity.this, EnvioFirebaseActivity.class);
+            Intent it = new Intent(LoginActivity.this, Listar.class);
             startActivity(it);
             finish();
         }

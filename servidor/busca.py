@@ -131,24 +131,24 @@ def teste_servidor():
 
 def main():
 
-  #pesquisar=raw_input("Produto para fazer a pesquisa: ").replace(" ", "+").lower()
+  pesquisar=raw_input("Produto para fazer a pesquisa: ").replace(" ", "+").lower()
 
-  #site_extra=''
-  #site_pao=''
+  site_extra=''
+  site_pao=''
   
-  #with open('config.cfg', 'r') as f: 
-  #  leitura=f.readlines()    
-  #  site_ex=leitura[0].rstrip('\n')
-  #  site_pa=leitura[1].rstrip('\n')
-  #  agente=leitura[2].rstrip('\n')
+  with open('config.cfg', 'r') as f: 
+    leitura=f.readlines()    
+    site_ex=leitura[0].rstrip('\n')
+    site_pa=leitura[1].rstrip('\n')
+    agente=leitura[2].rstrip('\n')
 
-  #cabecalho = {"User-Agent":agente}
+  cabecalho = {"User-Agent":agente}
 
-  #pesquisar_ex(pesquisar, cabecalho, site_ex)
-  #pesquisar_pa(pesquisar, cabecalho, site_pa)
+  pesquisar_ex(pesquisar, cabecalho, site_ex)
+  pesquisar_pa(pesquisar, cabecalho, site_pa)
 
   #teste_servidor()
 
-  pesquisar_teste()
+  #pesquisar_teste()
 
 main()
