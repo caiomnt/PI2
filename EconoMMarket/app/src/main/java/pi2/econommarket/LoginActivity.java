@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(user != null || account != null){
-            Intent it = new Intent(LoginActivity.this, AlarmActivity.class);
+            Intent it = new Intent(LoginActivity.this, ResultadoBusca.class);
             startActivity(it);
             finish();
         }
@@ -211,7 +211,7 @@ public class LoginActivity extends AppCompatActivity {
               @Override
               public void onComplete(@NonNull Task<AuthResult> task) {
                   if(task.isSuccessful()) {
-                      Intent it = new Intent(LoginActivity.this, EnvioFirebaseActivity.class);
+                      Intent it = new Intent(LoginActivity.this, ResultadoBusca.class);
                       startActivity(it);
                   }else{
                       Toast.makeText(LoginActivity.this, "E-mail ou senha inválido!", Toast.LENGTH_LONG).show();
