@@ -11,7 +11,7 @@ public class ConfiguracaoFirebase {
 
     public static DatabaseReference getFirebase(){
         if(database == null){
-            database = FirebaseDatabase.getInstance().getReference("pao/cerveja/Cervejas");
+            database = FirebaseDatabase.getInstance().getReference();
         }
         return database;
     }

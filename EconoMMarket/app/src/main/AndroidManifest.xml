@@ -51,17 +51,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Listar" />
-        <activity
-            android:name=".AlarmActivity"
-            android:label="@string/title_activity_alarm"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ResultadoBusca" />
-
-        <receiver android:name=".Receptor">
-            <intent-filter>
-                <action android:name="android.intent.action.PHONE_STATE" />
-            </intent-filter>
-        </receiver>
+        <activity android:name=".ResultadoLocalizacao" />
 
         <activity
             android:name=".HomeActivity"
@@ -73,7 +63,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter -->
         </activity>
-        <activity android:name=".filtragem" />
+        <activity android:name=".Listagem" />
         <activity android:name=".OpcoesCervejas" />
         <activity android:name=".Pacote" />
     </application>

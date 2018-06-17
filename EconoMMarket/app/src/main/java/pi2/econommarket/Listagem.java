@@ -2,13 +2,10 @@ package pi2.econommarket;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,13 +14,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class filtragem extends AppCompatActivity {
+public class Listagem extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private List<Produtos> items = new ArrayList<>();
 
-    private List<Cervejas> items = new ArrayList<>();
+    private String cat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,26 +37,19 @@ public class filtragem extends AppCompatActivity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        //Subistituir esta lista pela lista com os dados do firebase
-        /*
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }// define an adapter
-        */
 
+         cat = getIntent().getStringExtra("cat");
 
         DatabaseReference ref = ConfiguracaoFirebase.getFirebase();
 
 
-
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.child("pao").child("cerveja").child(cat).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 items.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    Cervejas cerveja = postSnapshot.getValue(Cervejas.class);
-                    items.add(cerveja);
+                    Produtos produto = postSnapshot.getValue(Produtos.class);
+                    items.add(produto);
                 }
                 // Reload na lista
                 mAdapter.notifyDataSetChanged();
@@ -65,13 +57,10 @@ public class filtragem extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(filtragem.this,"Não foi possivel conectar a base de dados! ",Toast.LENGTH_LONG).show();
+                Toast.makeText(Listagem.this,"Não foi possivel conectar a base de dados! ",Toast.LENGTH_LONG).show();
             }
 
-
         });
-
-
 
         mAdapter = new MyAdapter(items);
         recyclerView.setAdapter(mAdapter);

@@ -13,7 +13,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
-public class ResultadoBusca extends AppCompatActivity {
+public class ResultadoLocalizacao extends AppCompatActivity {
 
     public interface LocalizacaoService {
         @GET("lojas/listar")
@@ -25,7 +25,7 @@ public class ResultadoBusca extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resultado_busca);
+        //setContentView(R.layout.activity_resultado_busca);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -46,7 +46,7 @@ public class ResultadoBusca extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Localizacao>> req, Throwable erro) {
-                Toast.makeText(ResultadoBusca.this, erro.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ResultadoLocalizacao.this, erro.getMessage(), Toast.LENGTH_LONG).show();
             }
 
         });

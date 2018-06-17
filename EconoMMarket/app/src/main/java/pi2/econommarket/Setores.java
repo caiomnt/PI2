@@ -22,7 +22,7 @@ public class Setores extends AppCompatActivity {
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Setores.this,filtragem.class);
+                Intent intent = new Intent(Setores.this,OpcoesCervejas.class);
                 startActivity(intent);
                 finish();
             }
