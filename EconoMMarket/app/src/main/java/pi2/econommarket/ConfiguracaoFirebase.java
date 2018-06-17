@@ -11,7 +11,7 @@ public class ConfiguracaoFirebase {
 
     public static DatabaseReference getFirebase(){
         if(referenciaFirebase == null){
-            referenciaFirebase = FirebaseDatabase.getInstance().getReference("https://econommarket-876ac.firebaseio.com/pao/cerveja/Cervejas");
+            referenciaFirebase = FirebaseDatabase.getInstance().getReference("pao/cerveja/Cervejas");
         }
         return referenciaFirebase;
     }

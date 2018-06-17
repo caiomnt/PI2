@@ -37,12 +37,10 @@ public class filtragem extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         //Subistituir esta lista pela lista com os dados do firebase
-        List<String> input = new ArrayList<>();
+        /*List<String> input = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             input.add("Test" + i);
-        }// define an adapter
-
-
+        }*/// define an adapter
 
         DatabaseReference ref = ConfiguracaoFirebase.getFirebase();
         ref.addValueEventListener(new ValueEventListener() {
@@ -60,12 +58,7 @@ public class filtragem extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(filtragem.this,"Não foi possivel conectar a base de dados! ",Toast.LENGTH_LONG).show();
             }
-
-
         });
-
-
-
 
         mAdapter = new MyAdapter(items);
         recyclerView.setAdapter(mAdapter);

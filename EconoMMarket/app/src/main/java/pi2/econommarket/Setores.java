@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
-public class filtro extends AppCompatActivity {
+public class Setores extends AppCompatActivity {
 
     ImageView img1, img2, img3;
 
@@ -23,7 +22,7 @@ public class filtro extends AppCompatActivity {
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(filtro.this,filtragem.class);
+                Intent intent = new Intent(Setores.this,filtragem.class);
                 startActivity(intent);
                 finish();
             }

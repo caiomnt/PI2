@@ -71,14 +71,14 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".filtro">
+        <activity android:name=".Setores">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cafeinados" />
+        <activity android:name=".OpcoesCervejas" />
         <activity android:name=".filtragem" />
     </application>
 

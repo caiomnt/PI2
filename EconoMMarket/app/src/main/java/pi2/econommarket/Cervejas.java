@@ -2,13 +2,21 @@ package pi2.econommarket;
 
 public class Cervejas {
 
-
     private String categoria;
     private String disp;
     private String imagem;
     private String preco;
     private String titulo;
     private String url;
+
+    public Cervejas(String categoria, String disp, String imagem, String preco, String titulo, String url) {
+        this.categoria = categoria;
+        this.disp = disp;
+        this.imagem = imagem;
+        this.preco = preco;
+        this.titulo = titulo;
+        this.url = url;
+    }
 
     public String getCategoria() {
         return categoria;
