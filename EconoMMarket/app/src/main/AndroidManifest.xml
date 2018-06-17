@@ -80,6 +80,7 @@
         </activity>
         <activity android:name=".OpcoesCervejas" />
         <activity android:name=".filtragem" />
+        <activity android:name=".Pacote"></activity>
     </application>
 
 </manifest>
