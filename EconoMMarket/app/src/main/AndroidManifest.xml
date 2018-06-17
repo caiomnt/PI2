@@ -18,14 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
-
-            <!--
-            intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter
-            -->
+            </intent-filter>
         </activity>
         <activity android:name=".CadastrarActivity" />
         <activity android:name=".EsquecerActivity" />
@@ -72,15 +68,14 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Setores">
-            <intent-filter>
+            <!-- intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter -->
         </activity>
-        <activity android:name=".OpcoesCervejas" />
         <activity android:name=".filtragem" />
-        <activity android:name=".Pacote"></activity>
+        <activity android:name=".OpcoesCervejas" />
+        <activity android:name=".Pacote" />
     </application>
 
 </manifest>

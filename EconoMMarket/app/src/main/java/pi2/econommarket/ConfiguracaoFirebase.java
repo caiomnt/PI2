@@ -6,20 +6,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ConfiguracaoFirebase {
 
-    private static DatabaseReference referenciaFirebase;
-    private static FirebaseAuth autenticacao;
+    private static DatabaseReference database;
+    private static FirebaseAuth auth;
 
     public static DatabaseReference getFirebase(){
-        if(referenciaFirebase == null){
-            referenciaFirebase = FirebaseDatabase.getInstance().getReference("/pao/cerveja/Cervejas/-LF9QmgVUREVmJrGb-NS");
+        if(database == null){
+            database = FirebaseDatabase.getInstance().getReference("pao/cerveja/Cervejas");
         }
-        return referenciaFirebase;
+        return database;
     }
 
     public static FirebaseAuth getFirebaseAutenticacao(){
-        if(autenticacao == null){
-            autenticacao = FirebaseAuth.getInstance();
+        if(auth == null){
+            auth = FirebaseAuth.getInstance();
         }
-        return autenticacao;
+        return auth;
     }
 }

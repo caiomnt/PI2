@@ -2,14 +2,19 @@ package pi2.econommarket;
 
 public class Cervejas {
 
+
     private String categoria;
-    private String disp;
+    private Integer disp;
     private String imagem;
-    private String preco;
+    private Double preco;
     private String titulo;
     private String url;
 
-    public Cervejas(String categoria, String disp, String imagem, String preco, String titulo, String url) {
+
+    public Cervejas() {
+    }
+
+    public Cervejas(String categoria, Integer disp, String imagem, Double preco, String titulo, String url) {
         this.categoria = categoria;
         this.disp = disp;
         this.imagem = imagem;
@@ -26,11 +31,11 @@ public class Cervejas {
         this.categoria = categoria;
     }
 
-    public String getDisp() {
+    public Integer getDisp() {
         return disp;
     }
 
-    public void setDisp(String disp) {
+    public void setDisp(Integer disp) {
         this.disp = disp;
     }
 
@@ -42,11 +47,11 @@ public class Cervejas {
         this.imagem = imagem;
     }
 
-    public String getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(String preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 

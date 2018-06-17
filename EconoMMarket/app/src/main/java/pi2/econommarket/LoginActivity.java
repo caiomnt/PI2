@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(user != null || account != null){
-            Intent it = new Intent(LoginActivity.this, ResultadoBusca.class);
+            Intent it = new Intent(LoginActivity.this, Setores.class);
             startActivity(it);
             finish();
         }
@@ -204,20 +204,20 @@ public class LoginActivity extends AppCompatActivity {
         EditText edtEmail = findViewById(R.id.edtEmail);
         EditText edtSenha = findViewById(R.id.edtSenha);
         if (edtEmail.getText().toString().matches("") || edtSenha.getText().toString().matches("")){
-          Toast.makeText(LoginActivity.this, "Informe o usuário e a senha.", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "Informe o usuário e a senha.", Toast.LENGTH_LONG).show();
         }else{
-          Task<AuthResult> processo = auth.signInWithEmailAndPassword(edtEmail.getText().toString(),edtSenha.getText().toString());
-          processo.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-              @Override
-              public void onComplete(@NonNull Task<AuthResult> task) {
-                  if(task.isSuccessful()) {
-                      Intent it = new Intent(LoginActivity.this, ResultadoBusca.class);
-                      startActivity(it);
-                  }else{
-                      Toast.makeText(LoginActivity.this, "E-mail ou senha inválido!", Toast.LENGTH_LONG).show();
-                  }
-              }
-          });
+            Task<AuthResult> processo = auth.signInWithEmailAndPassword(edtEmail.getText().toString(),edtSenha.getText().toString());
+            processo.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()) {
+                        Intent it = new Intent(LoginActivity.this, Setores.class);
+                        startActivity(it);
+                    }else{
+                        Toast.makeText(LoginActivity.this, "E-mail ou senha inválido!", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
     }
 

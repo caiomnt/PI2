@@ -3,12 +3,17 @@ package pi2.econommarket;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Cervejas> values;
@@ -19,12 +24,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView txtHeader;
+        public ImageView icone;
         public TextView txtFooter;
         public View layout;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
+            icone = (ImageView) v.findViewById(R.id.imgProduto);
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
         }
@@ -55,18 +62,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+
         final Cervejas cerveja = values.get(position);
-        holder.txtHeader.setText(cerveja.getCategoria());
+        holder.txtHeader.setText(cerveja.getTitulo());
+        /*
+        final String x = values.get(position);
+        holder.txtHeader.setText(x);
+        */
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 //remove(position);
-
-
             }
         });
-
-        holder.txtFooter.setText("Footer: " + cerveja.getCategoria());
+        /*holder.txtFooter.setText("Footer: " + x);*/
+        Picasso.get()
+                .load(cerveja.getImagem())
+                .into(holder.icone);
+        holder.txtFooter.setText("R$: " + cerveja.getPreco());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
