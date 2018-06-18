@@ -2,7 +2,6 @@ package pi2.econommarket;
 
 public class Produtos {
 
-
     private String categoria;
     private Integer disp;
     private String imagem;

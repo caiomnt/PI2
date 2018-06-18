@@ -1,6 +1,8 @@
 # Configuracoes do servidor/crawler
-config.cfg
-pi2teste.txt
+config.ini
+econommarket.json
+*.pyc
+__pycache__/
 
 # Built application files
 *.apk

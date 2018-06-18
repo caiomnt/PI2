@@ -27,5 +27,25 @@ public class Setores extends AppCompatActivity {
                 finish();
             }
         });
+
+        /*
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Setores.this,OpcoesMolhos.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Setores.this,OpcoesLeites.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        */
     }
 }
