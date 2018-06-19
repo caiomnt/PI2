@@ -4,48 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fffdf4"
     tools:context=".Setores">
 
     <ImageView
-        android:id="@+id/img3"
-        android:layout_width="253dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img2"
-        app:layout_constraintVertical_bias="0.574"
-        app:srcCompat="@mipmap/cart_512" />
-
-    <ImageView
         android:id="@+id/img1"
-        android:layout_width="253dp"
-        android:layout_height="110dp"
+        android:layout_width="241dp"
+        android:layout_height="115dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/cart_512" />
+        app:srcCompat="@drawable/cerva" />
 
     <ImageView
         android:id="@+id/img2"
-        android:layout_width="253dp"
-        android:layout_height="110dp"
+        android:layout_width="254dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img1"
+        app:srcCompat="@drawable/molhos" />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="247dp"
+        android:layout_height="145dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img1"
-        app:srcCompat="@mipmap/cart_512" />
+        app:layout_constraintTop_toBottomOf="@+id/img2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/leite" />
 
 </android.support.constraint.ConstraintLayout>

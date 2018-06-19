@@ -5,6 +5,7 @@
     android:id="@+id/coordinatorLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fffdf4"
     tools:context=".HomeActivity">
 
 
@@ -69,5 +70,18 @@
         app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/cart_512" />
+
+    <Button
+        android:id="@+id/btnSairHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="24dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="LOGOUT"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -28,7 +28,7 @@ public class Setores extends AppCompatActivity {
             }
         });
 
-        /*
+
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,11 +41,19 @@ public class Setores extends AppCompatActivity {
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Setores.this,OpcoesLeites.class);
+                Intent intent = new Intent(Setores.this,OpcoesLeite.class);
                 startActivity(intent);
                 finish();
             }
         });
-        */
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent(Setores.this, HomeActivity.class);
+        startActivity(it);
+        finish();
     }
 }

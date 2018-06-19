@@ -1,5 +1,6 @@
 package pi2.econommarket;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,38 +21,66 @@ public class Listagem extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<Produtos> items = new ArrayList<>();
+    private List<Produtos> itemsOrdenados = new ArrayList<>();
 
     private String cat;
+    private String prod;
 
+    public List<Produtos> quickSort(List<Produtos> lista){
+
+        if (lista.size() <= 1){
+            return lista;
+        }
+
+        List<Produtos> listaordenada = new ArrayList<>();
+        List<Produtos> menor = new ArrayList<>();
+        List<Produtos> maior = new ArrayList<>();
+
+        Produtos pivot = lista.get(lista.size()-1);
+        for (int i = 0; i < lista.size()-1; i++) {
+            if (lista.get(i).getPreco() < pivot.getPreco() ) menor.add(lista.get(i));
+            else maior.add(lista.get(i));
+        }
+        menor = quickSort(menor);
+        maior = quickSort(maior);
+
+        //Realiza a concatenação das listas
+        menor.add(pivot);
+        menor.addAll(maior);
+        listaordenada = menor;
+
+        return listaordenada;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtragem);
+
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        // use this setting to
-        // improve performance if you know that changes
-        // in content do not change the layout size
-        // of the RecyclerView
         recyclerView.setHasFixedSize(true);
-        // use a linear layout manager
+
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-         cat = getIntent().getStringExtra("cat");
+
+        prod = getIntent().getStringExtra("prod");
+        cat = getIntent().getStringExtra("cat");
 
         DatabaseReference ref = ConfiguracaoFirebase.getFirebase();
 
-
-        ref.child("pao").child("cerveja").child(cat).addValueEventListener(new ValueEventListener() {
+        ref.child("pao").child(prod).child(cat).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                itemsOrdenados.clear();
                 items.clear();
+
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Produtos produto = postSnapshot.getValue(Produtos.class);
-                    items.add(produto);
+                    itemsOrdenados.add(produto);
                 }
-                // Reload na lista
+
+                items=quickSort(itemsOrdenados);
                 mAdapter.notifyDataSetChanged();
             }
 
@@ -65,5 +94,14 @@ public class Listagem extends AppCompatActivity {
         mAdapter = new MyAdapter(items);
         recyclerView.setAdapter(mAdapter);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent(Listagem.this, Setores.class);
+        startActivity(it);
+        finish();
+    }
+
 }
 

@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 public class OpcoesCervejas extends AppCompatActivity {
 
@@ -26,6 +25,7 @@ public class OpcoesCervejas extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(OpcoesCervejas.this,Listagem.class);
                 intent.putExtra("cat", "Cervejas");
+                intent.putExtra("prod", "cerveja");
                 startActivity(intent);
                 finish();
             }
@@ -36,11 +36,21 @@ public class OpcoesCervejas extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(OpcoesCervejas.this,Listagem.class);
                 intent.putExtra("cat", "Cervejas Especiais");
+                intent.putExtra("prod", "cerveja");
                 startActivity(intent);
                 finish();
             }
         });
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent(OpcoesCervejas.this, Setores.class);
+        startActivity(it);
+        finish();
     }
 
 }
