@@ -21,8 +21,6 @@ public class Listagem extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<Produtos> items = new ArrayList<>();
-    private List<Produtos> itemsOrdenados = new ArrayList<>();
-
     private String cat;
     private String prod;
 
@@ -72,15 +70,15 @@ public class Listagem extends AppCompatActivity {
         ref.child("pao").child(prod).child(cat).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                itemsOrdenados.clear();
+
                 items.clear();
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Produtos produto = postSnapshot.getValue(Produtos.class);
-                    itemsOrdenados.add(produto);
+                    items.add(produto);
                 }
 
-                items=quickSort(itemsOrdenados);
+                //items=quickSort(items);
                 mAdapter.notifyDataSetChanged();
             }
 
