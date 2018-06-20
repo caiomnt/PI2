@@ -39,6 +39,17 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+        FloatingActionButton map = (FloatingActionButton) findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this,MapsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         Button btnSairHome = findViewById(R.id.btnSairHome);
         btnSairHome.setOnClickListener(new View.OnClickListener() {
             @Override

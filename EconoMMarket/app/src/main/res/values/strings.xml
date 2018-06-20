@@ -4,5 +4,6 @@
     <string name="fb_login_protocol_scheme">fb297845574080604</string>
     <string name="title_activity_alarm">AlarmActivity</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
