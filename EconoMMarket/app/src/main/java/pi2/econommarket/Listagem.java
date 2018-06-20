@@ -21,6 +21,7 @@ public class Listagem extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<Produtos> items = new ArrayList<>();
+    private List<Produtos> items2 = new ArrayList<>();
     private String cat;
     private String prod;
 
@@ -72,13 +73,14 @@ public class Listagem extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
 
                 items.clear();
+                items2.clear();
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Produtos produto = postSnapshot.getValue(Produtos.class);
                     items.add(produto);
                 }
 
-                //items=quickSort(items);
+                items2.addAll(quickSort(items));
                 mAdapter.notifyDataSetChanged();
             }
 
@@ -89,7 +91,7 @@ public class Listagem extends AppCompatActivity {
 
         });
 
-        mAdapter = new MyAdapter(items);
+        mAdapter = new MyAdapter(items2);
         recyclerView.setAdapter(mAdapter);
     }
 
