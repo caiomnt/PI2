@@ -22,7 +22,10 @@ public class Listagem extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private List<Produtos> items = new ArrayList<>();
     private List<Produtos> items2 = new ArrayList<>();
-    private String cat;
+    private List<Produtos> items3 = new ArrayList<>();
+    private List<Produtos> items4 = new ArrayList<>();
+    private List<Produtos> items5 = new ArrayList<>();
+    private String cat;private String cat2;
     private String prod;
 
     public List<Produtos> quickSort(List<Produtos> lista){
@@ -66,6 +69,12 @@ public class Listagem extends AppCompatActivity {
         prod = getIntent().getStringExtra("prod");
         cat = getIntent().getStringExtra("cat");
 
+        if(cat.equals("Cervejas") || cat.equals("Cervejas Especiais")){ cat2 = cat;}
+        if(cat.equals("Leite e Achocolatado")){ cat2 = "Leite tradicional";}
+        if(cat.equals("Biscoitos Doces")){ cat2 = "Biscoitos doces";}
+        if(cat.equals("Molhos Diversos")){ cat2 = "Molhos especiais";}
+        if(cat.equals("Molhos de Tomate")){ cat2 = "Atomatados";}
+
         DatabaseReference ref = ConfiguracaoFirebase.getFirebase();
 
         ref.child("pao").child(prod).child(cat).addValueEventListener(new ValueEventListener() {
@@ -81,6 +90,7 @@ public class Listagem extends AppCompatActivity {
                 }
 
                 items2.addAll(quickSort(items));
+                items5.add(items2.get(0));
                 mAdapter.notifyDataSetChanged();
             }
 
@@ -91,7 +101,32 @@ public class Listagem extends AppCompatActivity {
 
         });
 
-        mAdapter = new MyAdapter(items2);
+
+        ref.child("extra").child(prod).child(cat2).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                items3.clear();
+                items4.clear();
+
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    Produtos produto = postSnapshot.getValue(Produtos.class);
+                    items3.add(produto);
+                }
+
+                items4.addAll(quickSort(items3));
+                items5.add(items4.get(0));
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(Listagem.this,"Não foi possivel conectar a base de dados! ",Toast.LENGTH_LONG).show();
+            }
+
+        });
+
+        mAdapter = new MyAdapter(items5);
         recyclerView.setAdapter(mAdapter);
     }
 
