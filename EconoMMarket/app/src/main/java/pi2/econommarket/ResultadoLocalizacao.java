@@ -25,7 +25,7 @@ public class ResultadoLocalizacao extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_resultado_busca);
+        //setContentView(R.layout.login);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())

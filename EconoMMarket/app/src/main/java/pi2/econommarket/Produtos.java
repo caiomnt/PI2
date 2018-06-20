@@ -8,7 +8,7 @@ public class Produtos {
     private Double preco;
     private String titulo;
     private String url;
-
+    private String mercado;
 
     public Produtos() {
     }
@@ -69,4 +69,8 @@ public class Produtos {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public String getMercado() { return mercado; }
+
+    public void setMercado(String mercado) { this.mercado = mercado; }
 }

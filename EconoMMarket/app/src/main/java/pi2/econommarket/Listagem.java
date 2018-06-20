@@ -25,6 +25,8 @@ public class Listagem extends AppCompatActivity {
     private List<Produtos> items3 = new ArrayList<>();
     private List<Produtos> items4 = new ArrayList<>();
     private List<Produtos> items5 = new ArrayList<>();
+    private List<Produtos> items6 = new ArrayList<>();
+
     private String cat;private String cat2;
     private String prod;
 
@@ -86,6 +88,7 @@ public class Listagem extends AppCompatActivity {
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Produtos produto = postSnapshot.getValue(Produtos.class);
+                    produto.setMercado("pao");
                     items.add(produto);
                 }
 
@@ -111,6 +114,7 @@ public class Listagem extends AppCompatActivity {
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Produtos produto = postSnapshot.getValue(Produtos.class);
+                    produto.setMercado("extra");
                     items3.add(produto);
                 }
 
@@ -119,12 +123,14 @@ public class Listagem extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
             }
 
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(Listagem.this,"Não foi possivel conectar a base de dados! ",Toast.LENGTH_LONG).show();
             }
 
         });
+
 
         mAdapter = new MyAdapter(items5);
         recyclerView.setAdapter(mAdapter);
@@ -136,6 +142,18 @@ public class Listagem extends AppCompatActivity {
         Intent it = new Intent(Listagem.this, Setores.class);
         startActivity(it);
         finish();
+    }
+
+    private void diaxo(Double pao, Double extra) {
+        if(pao > extra) {
+            Toast.makeText(Listagem.this, "O supermercado mais indicado é o Pão de Açúcar.", Toast.LENGTH_LONG).show();
+        }else{
+            if(pao == extra){
+                Toast.makeText(Listagem.this, "Os dois supermercados tem o menor produto do mesmo preço.", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(Listagem.this, "O supermercado mais indicado é o EXTRA.", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package pi2.econommarket;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("EconoMMarket");
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
         FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);

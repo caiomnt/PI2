@@ -3,6 +3,11 @@ package pi2.econommarket;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,6 +26,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txtHeader;
         private ImageView icone;
+        private ImageView mercado;
         private TextView txtFooter;
         public View layout;
 
@@ -29,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             icone = (ImageView) v.findViewById(R.id.imgProduto);
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            mercado = (ImageView) v.findViewById(R.id.imgMercado);
         }
     }
 
@@ -53,17 +61,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         final Produtos produto = values.get(position);
         holder.txtHeader.setText(produto.getTitulo());
-        holder.txtHeader.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //remove(position);
-            }
-        });
+        if(produto.getMercado().equals("extra"))
+            holder.mercado.setImageResource(R.drawable.extra_logo);
+        else{
+            holder.mercado.setImageResource(R.drawable.pao_logo);
+        }
 
         Picasso.get()
                 .load(produto.getImagem())
                 .into(holder.icone);
-        holder.txtFooter.setText("R$: " + produto.getPreco() + " Categoria: " + produto.getCategoria());
+        holder.txtFooter.setText("R$: " + produto.getPreco() + "\nCategoria: " + produto.getCategoria());
+
     }
 
 
